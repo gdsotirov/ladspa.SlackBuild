@@ -1,0 +1,37 @@
+# Fix installation directories, cflags and compilers
+diff -u -r ladspa_sdk-orig/src/makefile ladspa_sdk/src/makefile
+--- ladspa_sdk-orig/src/makefile	2007-11-06 12:42:45.000000000 +0200
++++ ladspa_sdk/src/makefile	2008-11-13 20:49:38.000000000 +0200
+@@ -4,9 +4,9 @@
+ #
+ # Change these if you want to install somewhere else.
+ 
+-INSTALL_PLUGINS_DIR	=	/usr/lib/ladspa/
+-INSTALL_INCLUDE_DIR	=	/usr/include/
+-INSTALL_BINARY_DIR	=	/usr/bin/
++INSTALL_PLUGINS_DIR	=	$(DESTDIR)/usr/lib/ladspa/
++INSTALL_INCLUDE_DIR	=	$(DESTDIR)/usr/include/
++INSTALL_BINARY_DIR	=	$(DESTDIR)/usr/bin/
+ 
+ ###############################################################################
+ #
+@@ -15,7 +15,7 @@
+ 
+ INCLUDES	=	-I.
+ LIBRARIES	=	-ldl -lm
+-CFLAGS		=	$(INCLUDES) -Wall -Werror -O3 -fPIC
++CFLAGS		=	$(INCLUDES) -Wall -Werror -O3 -fPIC $(SLKCFLAGS)
+ CXXFLAGS	=	$(CFLAGS)
+ PLUGINS		=	../plugins/amp.so				\
+ 			../plugins/delay.so				\
+@@ -25,8 +25,8 @@
+ PROGRAMS	=	../bin/analyseplugin				\
+ 			../bin/applyplugin 				\
+ 			../bin/listplugins
+-CC		=	cc
+-CPP		=	c++
++CC		=	gcc
++CPP		=	g++
+ 
+ ###############################################################################
+ #
