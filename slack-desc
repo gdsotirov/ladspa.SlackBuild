@@ -1,0 +1,11 @@
+ladspa: LADSPA (Linux Audio Developer's Simple Plugin API)
+ladspa:
+ladspa: LADSPA is a standard that allows software audio processors and
+ladspa: effects to be plugged into a wide range of audio synthesis and
+ladspa: recording packages.
+ladspa:
+ladspa:
+ladspa:
+ladspa:
+ladspa:
+ladspa: Packaged by Georgi D. Sotirov <gdsotirov@dir.bg>
