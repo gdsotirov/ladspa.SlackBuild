@@ -5,7 +5,7 @@
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
 
-. ../slack-package.conf
+. ../../slack-package.conf
 
 NAME=ladspa
 VERSION=1.13
@@ -46,7 +46,7 @@ patch -p1 -b -z.orig < $CWD/$NAME-$VERSION.diff
 cd $SRC/src
 SLKCFLAGS=$SLKCFLAGS \
 make -j4 -e || exit 1
-make DESTDIR=$PKG install || exit 2
+make DESTDIR=$PKG LIBDIRSUFFIX=$LIBDIRSUFFIX install || exit 2
 
 # Prepare
 bin_perms $PKG
